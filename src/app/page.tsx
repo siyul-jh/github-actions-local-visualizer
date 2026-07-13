@@ -672,7 +672,7 @@ export default function Dashboard() {
               <p className="font-bold text-cyan-400">💡 해결 가이드라인:</p>
               <ul className="list-disc pl-4 space-y-2">
                 <li>
-                  <strong>방법 1 (일반 사용자 추천):</strong> 공식 홈페이지인{" "}
+                  공식 홈페이지인{" "}
                   <a
                     href="https://www.docker.com/products/docker-desktop/"
                     target="_blank"
@@ -682,14 +682,6 @@ export default function Dashboard() {
                     Docker Desktop 다운로드
                   </a>
                   에 접속하여 설치 패키지를 다운로드한 뒤 실행해 주세요.
-                </li>
-                <li>
-                  <strong>방법 2 (개발자 추천 - 초경량 오픈소스):</strong>{" "}
-                  터미널을 열고 아래 명령어를 복사하여 가벼운 Colima 도커 가상
-                  환경을 설치할 수 있습니다:
-                  <pre className="bg-black text-rose-400 p-2.5 rounded font-mono mt-1.5 select-all border border-slate-850">
-                    brew install colima docker
-                  </pre>
                 </li>
               </ul>
             </div>
@@ -735,13 +727,6 @@ export default function Dashboard() {
                   폴더의 <strong>Docker Desktop</strong> 앱을 클릭해 켜주시고,
                   고래 아이콘이 완전히 <strong>초록색(Engine Running)</strong>이
                   될 때까지 기다립니다.
-                </li>
-                <li>
-                  <strong>해결책 3 (Colima 이용자):</strong> 터미널을 여시고
-                  아래 명령어를 실행하여 서비스를 시작해 주십시오:
-                  <pre className="bg-black text-rose-400 p-2.5 rounded font-mono mt-1.5 select-all border border-slate-850">
-                    colima start
-                  </pre>
                 </li>
               </ul>
             </div>

@@ -35,7 +35,7 @@ function runDockerDiagnostic() {
     const version = execSync('docker --version', { env: { PATH: extendedPath } }).toString().trim();
     result.step1 = { status: 'success', message: `Docker CLI 감지됨: ${version}` };
   } catch (e) {
-    result.step1 = { status: 'failure', message: '로컬 시스템에 Docker CLI가 설치되어 있지 않습니다. Docker Desktop 또는 Colima를 설치해 주세요.' };
+    result.step1 = { status: 'failure', message: '로컬 시스템에 Docker CLI가 설치되어 있지 않습니다. Docker Desktop을 설치해 주세요.' };
     return result;
   }
 
@@ -44,7 +44,6 @@ function runDockerDiagnostic() {
     process.env.DOCKER_HOST,
     'unix:///var/run/docker.sock',
     `unix://${home}/.docker/run/docker.sock`,
-    `unix://${home}/.colima/default/docker.sock`,
     `unix://${home}/.orbstack/run/docker.sock`
   ].filter(Boolean) as string[];
 

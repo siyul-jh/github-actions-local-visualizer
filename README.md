@@ -9,13 +9,13 @@
 - **어노테이션**: 로그에서 오류/경고를 자동 추출, 타입별·Step별 필터링 지원
 - **Job 단위 개별 실행**: 특정 Job만 실행 (`needs` 의존 체인을 격리한 임시 워크플로우로 실행)
 - **실행 이력 관리**: 워크플로우 파일별 완료된 실행 이력을 저장하고, 과거 실행을 다시 열람
-- **Docker 상태 진단**: Docker Desktop/Colima 미기동 시 자동 진단 및 안내, 필요 시 호스트 직접 실행 모드로 우회
+- **Docker 상태 진단**: Docker Desktop 미기동 시 자동 진단 및 안내, 필요 시 호스트 직접 실행 모드로 우회
 
 ## 요구 사항
 
 - Node.js
 - [`act`](https://github.com/nektos/act) CLI (`brew install act`)
-- Docker Desktop 또는 Colima (선택 — 없으면 호스트 쉘 직접 실행 모드로 동작)
+- Docker Desktop (선택 — 없으면 호스트 쉘 직접 실행 모드로 동작)
 
 ## 시작하기
 
