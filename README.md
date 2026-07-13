@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GitHub Actions Local Visualizer
 
-## Getting Started
+[`act`](https://github.com/nektos/act)으로 GitHub Actions 워크플로우를 로컬에서 실행하고, 그 진행 상황을 실시간 그래프·로그로 시각화하는 도구입니다.
 
-First, run the development server:
+## 주요 기능
+
+- **정적 워크플로우 그래프**: `.github/workflows/*.yml`의 Job 의존성(`needs`)을 DAG로 시각화
+- **실시간 세션 뷰**: 워크플로우 실행 중 Job/Step 상태와 로그를 그래프에 실시간 반영
+- **어노테이션**: 로그에서 오류/경고를 자동 추출, 타입별·Step별 필터링 지원
+- **Job 단위 개별 실행**: 특정 Job만 실행 (`needs` 의존 체인을 격리한 임시 워크플로우로 실행)
+- **실행 이력 관리**: 워크플로우 파일별 완료된 실행 이력을 저장하고, 과거 실행을 다시 열람
+- **Docker 상태 진단**: Docker Desktop/Colima 미기동 시 자동 진단 및 안내, 필요 시 호스트 직접 실행 모드로 우회
+
+## 요구 사항
+
+- Node.js
+- [`act`](https://github.com/nektos/act) CLI (`brew install act`)
+- Docker Desktop 또는 Colima (선택 — 없으면 호스트 쉘 직접 실행 모드로 동작)
+
+## 시작하기
+
+프론트엔드(Next.js)와 백엔드(실행 에이전트)를 각각 실행해야 합니다.
 
 ```bash
+npm install
+
+# 터미널 1: 웹 UI
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 터미널 2: act 실행/모니터링 백엔드
+npm run agent
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 웹 UI: [http://localhost:3000](http://localhost:3000)
+- 백엔드 API/WebSocket: `http://localhost:3001`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+웹 UI에서 "폴더 선택"으로 GitHub Actions 워크플로우가 있는 대상 프로젝트를 연결한 뒤 워크플로우를 실행하면 됩니다.
