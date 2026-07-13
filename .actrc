@@ -1,0 +1,3 @@
+-P ubuntu-latest=catthehacker/ubuntu:act-latest
+-P self-hosted=ubuntu-latest
+--container-architecture linux/amd64
